@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
+<head><title>TAP Redirect</title></head>
 <body>
 <p>Weiterleitung zur TAP App...</p>
 <script>
-  window.location.href = "tap://callback" + window.location.search;
+  const params = window.location.search;
+  const tapUrl = "tap://callback" + params;
+  window.location.replace(tapUrl);
+  setTimeout(function() {
+    document.body.innerHTML = "<p>Bitte öffne die TAP App manuell falls die Weiterleitung nicht funktioniert.</p>";
+  }, 3000);
 </script>
 </body>
 </html>
